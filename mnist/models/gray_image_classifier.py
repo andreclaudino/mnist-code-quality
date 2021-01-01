@@ -21,29 +21,29 @@ class GrayImageClassifier(tf.Module):
         self._block = self._make_block(layer_sizes)
 
     # Batch functions
-    @tf.function(input_signature=[tf.TensorSpec(shape=[None, None, None], dtype=tf.dtypes.float32)])
-    def call(self, batch: tf.Tensor):
-        self._block(batch, training=False)
+    @tf.function(input_signature=[tf.TensorSpec(shape=[None, None, None, 1], dtype=tf.dtypes.float32)])
+    def __call__(self, batch: tf.Tensor):
+        return self._block(batch, training=False)
 
-    @tf.function(input_signature=[tf.TensorSpec(shape=[None, None, None], dtype=tf.dtypes.float32)])
+    @tf.function(input_signature=[tf.TensorSpec(shape=[None, None, None, 1], dtype=tf.dtypes.float32)])
     def train(self, batch):
-        self._block(batch, training=True)
+        return self._block(batch, training=True)
 
     # Parameter functions
-    @tf.function
+    @tf.function(input_signature=[])
     def image_height(self):
         return tf.constant(self._image_height, name="image_height")
 
-    @tf.function
+    @tf.function(input_signature=[])
     def image_width(self):
         return tf.constant(self._image_width, name="image_width")
 
-    @tf.function
+    @tf.function(input_signature=[])
     def output_size(self):
         return tf.constant(self._output_size, name="output_size")
 
     # Utils
-    def _make_block(self, layers: tuple[int]) -> tf.keras.Model:
+    def _make_block(self, layers: Tuple[int]) -> tf.keras.Model:
         dense_layers = [_make_layer(size) for size in layers]
 
         input_layers = [Flatten()]
