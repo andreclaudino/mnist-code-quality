@@ -10,6 +10,7 @@ setup(
     author_email='',
     description='',
     install_requires=[
-        "tensorflow-gpu==2.4.0"
+        "tensorflow-gpu==2.4.0",
+        "click==7.1.2"
     ]
 )
