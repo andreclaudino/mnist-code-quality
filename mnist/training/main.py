@@ -6,21 +6,25 @@ import tensorflow as tf
 
 from mnist.models.gray_image_classifier import GrayImageClassifier
 from mnist.persistence.microdata import load_grayscale_images
-from mnist.traininig.loop import run_training_loop
+from mnist.training.loop import run_training_loop
 
 
 @click.command()
-@click.option("--dataset-path", type=click.STRING, required=True)
-@click.option("--output-path", type=click.STRING, default="output")
-@click.option("--batch-size", type=click.INT, default=32)
-@click.option("--images-height", type=click.INT, required=True)
-@click.option("--images-width", type=click.INT, required=True)
-@click.option("--epochs", type=click.INT, default=1)
-@click.option("--learning-rate", type=click.FLOAT, required=True)
-@click.option("--debug/--no-debug", default=False)
-@click.option("--layer-sizes", "_layer_size_string", type=click.STRING)
-@click.option("--number-of-classes", type=click.INT)
-@click.option("--summary-step-size", type=click.INT, default=10)
+@click.option("--dataset-path", type=click.STRING, required=True, help="Path for the dataset used for training")
+@click.option("--output-path", type=click.STRING, default="output",
+              help="path where checkpoints, metrics and model artifact will be saved")
+@click.option("--batch-size", type=click.INT, default=32, help="Training batch size")
+@click.option("--images-height", type=click.INT, required=True, help="final height of images after resize")
+@click.option("--images-width", type=click.INT, required=True, help="Final width of images after resize")
+@click.option("--epochs", type=click.INT, default=1, help="Number of training epochs (repeats of dataset)")
+@click.option("--learning-rate", type=click.FLOAT, required=True, help="Leargning rate for gradient optimization")
+@click.option("--debug/--no-debug", default=False, help="Should or not use tensorflow in debug mode")
+@click.option("--layer-sizes", "_layer_size_string", type=click.STRING,
+              help="Comma-separeted list of dense layer sizes for the model")
+@click.option("--number-of-classes", type=click.INT,
+              help="Number of output classes (the number os neurons in the output layer)")
+@click.option("--summary-step-size", type=click.INT, default=10,
+              help="Number of steps between each metric report and checkpoint save")
 def main(dataset_path: str, output_path: str, batch_size: int, images_height: int, images_width: int,
          epochs: int, learning_rate: float, debug: bool, _layer_size_string: Tuple[int], number_of_classes: int,
          summary_step_size: int):

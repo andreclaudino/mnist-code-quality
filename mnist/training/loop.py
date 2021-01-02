@@ -3,7 +3,7 @@ from tensorflow.python.keras.optimizer_v2.optimizer_v2 import OptimizerV2
 
 from mnist.metrics import loss_function, write_metrics, accuracy_function
 from mnist.models.gray_image_classifier import GrayImageClassifier
-from mnist.traininig.checkpoints import make_checkpoint, save_checkpoint
+from mnist.training.checkpoints import make_checkpoint, save_checkpoint
 
 
 def run_training_loop(model: GrayImageClassifier, dataset: tf.data.Dataset, learning_rate: float, summary_step_size: int,
