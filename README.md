@@ -1,5 +1,8 @@
 # MNIST Code Quality
 
+\* Here is a [Brazilian Portuguese version](README.pt-br.md).  
+\* Há uma versáo em [Português Brasileiro](README.pt-br.md) neste link.
+
 This is a Tensorflow implementation of a solution for MNIST problem writen on code quality principles. The problem itself is very easy, and can be resolved with simple solutions. The approach here is show how to organize an ML training and validating application, easily refactorable, organized by concerns.
 
 ## What is here
@@ -73,3 +76,7 @@ Options:
   --help                   Show this message and exit.
 
 ```
+
+## Dataset
+
+The model expects the data as images in any format recognized by tensorflow. It should be organized in folders, each folder is the name of the corresponding class. You may find a dataset in the [mnist-png repository](https://github.com/IABrasil/mnist-png) from [iaBrasil](https://github.com/IABrasil).
