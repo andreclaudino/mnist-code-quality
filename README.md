@@ -85,4 +85,4 @@ Options:
 
 The model expects the data as images in any format recognized by Tensorflow. It should be organized in folders, where
 each folder has the name of the corresponding class. You may find a complying dataset in the
-[mnist-png repository](https://github.com/IABrasil/mnist-png) from [iaBrasil](https://github.com/IABrasil).
+[mnist-png repository](https://github.com/IABrasil/mnist-png) from [IABrasil](https://github.com/IABrasil).

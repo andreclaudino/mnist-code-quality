@@ -87,4 +87,4 @@ Options:
 O software espera os dados como imagens em qualquer formato reconhecido pelo Tensorflow. Ele deve estar organizado em
 pastas, o nome de cada pasta corresponde ao nome da classe das imagens dentro dela. Você pode encontrar um dataset
 adequado a este projeto no [repositório mnist-png](https://github.com/IABrasil/mnist-png) da comunidade
-[iaBrasil](https://github.com/IABrasil).
+[IABrasil](https://github.com/IABrasil).
