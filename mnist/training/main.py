@@ -12,13 +12,13 @@ from mnist.training.loop import run_training_loop
 @click.command()
 @click.option("--dataset-path", type=click.STRING, required=True, help="Path for the dataset used for training")
 @click.option("--output-path", type=click.STRING, default="output",
-              help="path where checkpoints, metrics and model artifact will be saved")
+              help="Path where checkpoints, metrics and model artifact will be saved")
 @click.option("--batch-size", type=click.INT, default=32, help="Training batch size")
-@click.option("--images-height", type=click.INT, required=True, help="final height of images after resize")
+@click.option("--images-height", type=click.INT, required=True, help="Final height of images after resize")
 @click.option("--images-width", type=click.INT, required=True, help="Final width of images after resize")
 @click.option("--epochs", type=click.INT, default=1, help="Number of training epochs (repeats of dataset)")
-@click.option("--learning-rate", type=click.FLOAT, required=True, help="Leargning rate for gradient optimization")
-@click.option("--debug/--no-debug", default=False, help="Should or not use tensorflow in debug mode")
+@click.option("--learning-rate", type=click.FLOAT, required=True, help="Learning rate for gradient optimization")
+@click.option("--debug/--no-debug", default=False, help="Whether or not to use tensorflow in debug mode")
 @click.option("--layer-sizes", "_layer_size_string", type=click.STRING,
               help="Comma-separeted list of dense layer sizes for the model")
 @click.option("--number-of-classes", type=click.INT,
