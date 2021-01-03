@@ -8,8 +8,8 @@ from mnist.validating.loop import run_validating_loop
 
 @click.command()
 @click.option("--saved-model-path", type=click.STRING, required=True, help="Path to the saved model artifact")
-@click.option("--dataset-path", type=click.STRING, required=True, help="Path to validating dataset")
-@click.option("--batch-size", type=click.INT, default=32, help="Validating batch size")
+@click.option("--dataset-path", type=click.STRING, required=True, help="Path to validation dataset")
+@click.option("--batch-size", type=click.INT, default=32, help="Validation batch size")
 def main(saved_model_path: str, dataset_path: str, batch_size: int):
 
     model: GrayImageClassifier = GrayImageClassifier.load(saved_model_path)
