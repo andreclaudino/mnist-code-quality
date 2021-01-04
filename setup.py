@@ -1,9 +1,9 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
     name='mnist',
-    version='0.0.1',
-    packages=['mnist', 'mnist.persistence'],
+    version='1.0.0',
+    packages=find_packages(),
     url='',
     license='',
     author='André Claudino',

@@ -46,4 +46,4 @@ def _make_image_loader(images_height: int, images_width: int) -> Callable:
 
 
 def _rescale(image: tf.Tensor) -> tf.Tensor:
-    return image/255.0
+    return tf.divide(image, 255.0)

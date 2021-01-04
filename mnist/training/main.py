@@ -26,7 +26,7 @@ from mnist.training.loop import run_training_loop
 @click.option("--summary-step-size", type=click.INT, default=10,
               help="Number of steps between each metric report and checkpoint save")
 def main(dataset_path: str, output_path: str, batch_size: int, images_height: int, images_width: int,
-         epochs: int, learning_rate: float, debug: bool, _layer_size_string: Tuple[int], number_of_classes: int,
+         epochs: int, learning_rate: float, debug: bool, _layer_size_string: str, number_of_classes: int,
          summary_step_size: int):
 
     # Parse layer list
@@ -49,7 +49,7 @@ def main(dataset_path: str, output_path: str, batch_size: int, images_height: in
     model.save(f"{output_path}/saved_model")
 
 
-def _parse_layer_sizes(layer_sizes) -> Tuple[str]:
+def _parse_layer_sizes(layer_sizes: str) -> Tuple[int]:
     try:
         return tuple([int(layer_size) for layer_size in layer_sizes.split(",")])
     except:
