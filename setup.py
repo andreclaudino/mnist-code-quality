@@ -10,7 +10,7 @@ setup(
     author_email='',
     description='',
     install_requires=[
-        "tensorflow-gpu==2.4.0",
+        "tensorflow==2.14.0",
         "click==7.1.2"
     ],
     entry_points={
